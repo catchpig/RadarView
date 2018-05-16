@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RadarView">
+        <!--线的颜色-->
+        <attr name="line_color" format="color"></attr>
+        <!--圆圈的颜色-->
+        <attr name="circle_color" format="color"></attr>
+        <!--扫描区的颜色-->
+        <attr name="sweep_color" format="color"></attr>
+        <!--圆圈的个数-->
+        <attr name="circle_count" format="integer"></attr>
+        <!--线的宽度-->
+        <attr name="line_width" format="dimension"></attr>
+        <!--圆圈的宽度-->
+        <attr name="circle_width" format="dimension"></attr>
+        <!--扫描的速度(单位毫秒)-->
+        <attr name="sweep_speed" format="integer"></attr>
+    </declare-styleable>
+</resources>

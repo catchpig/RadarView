@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <zhuazhu.radar.view.RadarView
+        android:id="@+id/radar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:line_color="@color/c_91d7f4"
+        app:circle_color="@color/c_91d7f4"
+        app:sweep_color="@color/c_91d7f4"
+        app:circle_count="4"
+        app:circle_width="2dp"
+        app:line_width="2dp"
+        app:sweep_speed="3000"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
