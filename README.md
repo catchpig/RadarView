@@ -14,7 +14,7 @@
    ```
 添加依赖:
 ```
-implementation 'com.github.zhuazhu:RadarView:1.0.0'
+implementation 'com.github.zhuazhu:RadarView:1.0.1'
 ```
 
 ## 布局中的使用
