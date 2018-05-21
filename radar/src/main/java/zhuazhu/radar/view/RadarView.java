@@ -1,12 +1,12 @@
 package zhuazhu.radar.view;
 
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.graphics.SweepGradient;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -98,6 +98,7 @@ public class RadarView extends View {
     }
     private int centerPointX;
     private int centerPointY;
+    private int minSize;
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -105,6 +106,7 @@ public class RadarView extends View {
         int height = getHeight();
         centerPointX = width/2;
         centerPointY = height/2;
+        minSize = Math.min(centerPointX,centerPointY);
         int saveCount = canvas.saveLayer(0,0,width,height,null,Canvas.ALL_SAVE_FLAG);
         canvas.translate(centerPointX,centerPointY);
         drawCrossLine(canvas);
@@ -118,9 +120,9 @@ public class RadarView extends View {
      */
     private void drawCrossLine(Canvas canvas){
         //画水平线
-        canvas.drawLine(-centerPointX,0,centerPointX, 0, mPaintLine);
+        canvas.drawLine(-minSize,0,minSize, 0, mPaintLine);
         //画垂直线
-        canvas.drawLine(0,-centerPointY, 0,centerPointY, mPaintLine);
+        canvas.drawLine(0,-minSize, 0,minSize, mPaintLine);
     }
 
     /**
@@ -129,7 +131,7 @@ public class RadarView extends View {
      */
     private void drawCircle(Canvas canvas){
         for (int i = mCircleCount; i>0; i--){
-            canvas.drawCircle(0,0,(centerPointX*i/ mCircleCount)- mLineWidth /2, mPaintCircle);
+            canvas.drawCircle(0,0,(minSize*i/ mCircleCount)- mLineWidth /2, mPaintCircle);
         }
     }
 
@@ -139,9 +141,8 @@ public class RadarView extends View {
      * @param canvas
      */
     private void drawSweep(Canvas canvas){
-
         canvas.rotate(mAngle,0,0);
-        canvas.drawCircle(0,0,centerPointX, mPaintSweep);
+        canvas.drawCircle(0,0,minSize, mPaintSweep);
     }
     /**
      * 改变扫描区颜色的透明度
